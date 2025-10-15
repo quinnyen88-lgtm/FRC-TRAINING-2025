@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-import java.security.Key;
 
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.PersistMode;
