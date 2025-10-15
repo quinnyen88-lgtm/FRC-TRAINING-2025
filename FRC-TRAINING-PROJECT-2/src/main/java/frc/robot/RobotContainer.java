@@ -4,11 +4,23 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.Subsystem;
+import frc.robot.commands.ArcadeMotor;
+import frc.robot.constants.IOConstants;
+import frc.robot.subsystems.Motor;
 
 public class RobotContainer {
+
+  private Motor m_motor = new Motor();
+  private Joystick m_joystick = new Joystick(IOConstants.kJoystickPort);
+  private ArcadeMotor m_arcadeMotor= new ArcadeMotor(m_motor, m_joystick);
+
+
   public RobotContainer() {
+    m_motor.setDefaultCommand(m_arcadeMotor);
     configureBindings();
   }
 
