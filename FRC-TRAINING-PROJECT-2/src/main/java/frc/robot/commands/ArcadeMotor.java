@@ -6,7 +6,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
-
+import frc.robot.constants.DrivetrainConstants;
+import frc.robot.constants.IOConstants;
 import frc.robot.subsystems.Drivetrain;
 
 
@@ -30,9 +31,10 @@ public class ArcadeMotor extends Command {
 
   /** Creates a new ArcadeMotor. */
   public ArcadeMotor(Drivetrain motor, Joystick joystick) {
-    // Use addRequirements() here to declare subsystem dependencies.
+    
     m_motor = motor;
     m_joystick = joystick;
+    // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_motor);
   }
 
@@ -44,11 +46,11 @@ public class ArcadeMotor extends Command {
   @Override
   public void execute() {
     
-    m_speed = m_joystick.getY();
-    m_turn = m_joystick.getX();
+    m_speed = m_joystick.getRawAxis(IOConstants.kJoystickAxisY);
+    m_turn = m_joystick.getRawAxis(IOConstants.kJoystickAxisX);
     //for it to turn one of sides has to have a negative
-    m_left = m_speed + m_turn;
-    m_right = m_speed - m_turn;
+    m_left = m_speed - m_turn * DrivetrainConstants.kSpeedMultiplier;
+    m_right = m_speed + m_turn * DrivetrainConstants.kSpeedMultiplier;
     m_motor.setLeftSpeed(m_left);
     m_motor.setRightSpeed(m_right);
 
@@ -56,7 +58,10 @@ public class ArcadeMotor extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_motor.setLeftSpeed(0);
+    m_motor.setRightSpeed(0);
+  }
 
   // Returns true when the command should end.
   @Override

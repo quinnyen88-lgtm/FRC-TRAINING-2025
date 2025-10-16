@@ -15,34 +15,34 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.MotorConstants;
+import frc.robot.constants.DrivetrainConstants;
 
 public class Drivetrain extends SubsystemBase {
 
-  TalonSRX m_talonLeft = new TalonSRX(MotorConstants.kTalonLeftID);
-  TalonSRX m_talonRight = new TalonSRX(MotorConstants.kTalonRightID);
+  TalonSRX m_talonLeft = new TalonSRX(DrivetrainConstants.kTalonLeftID);
+  TalonSRX m_talonRight = new TalonSRX(DrivetrainConstants.kTalonRightID);
 
   //VictorSPX Motor initialization
-  VictorSPX m_victorLeft = new VictorSPX(MotorConstants.kVictorLeftID);
-  VictorSPX m_victorRight = new VictorSPX(MotorConstants.kVictorRightID);
+  VictorSPX m_victorLeft = new VictorSPX(DrivetrainConstants.kVictorLeftID);
+  VictorSPX m_victorRight = new VictorSPX(DrivetrainConstants.kVictorRightID);
 
 
 
   /** Creates a new Motor. */
   public Drivetrain() {
-    //No idea why yet
+    //so the robot will hold its position
     m_talonRight.setNeutralMode(NeutralMode.Brake);
     m_talonLeft.setNeutralMode(NeutralMode.Brake);
     
-    //No idea why this needs to be inverted
-    m_talonRight.setInverted(MotorConstants.kisInverted);
+    //so the motors spin in opposite directions but when installed they will spin towards the same side
+    m_talonRight.setInverted(DrivetrainConstants.kisInverted);
 
-    //Victor motors
+    //so the motors match the same speed as the primary motors
     m_victorLeft.follow(m_talonLeft);
     m_victorRight.follow(m_talonRight);
 
-    //no idea why this needs to be inverted. will fix later
-    m_victorRight.setInverted(MotorConstants.kisInverted);
+    //so the motors spin in opposite directions but when installed they will spin towards the same side 
+    m_victorRight.setInverted(DrivetrainConstants.kisInverted);
     
   }
 

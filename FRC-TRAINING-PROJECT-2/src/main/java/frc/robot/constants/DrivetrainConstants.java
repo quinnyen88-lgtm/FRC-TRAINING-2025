@@ -5,8 +5,9 @@
 package frc.robot.constants;
 
 /** Add your docs here. */
-public class DriveConstants {
+public class DrivetrainConstants {
     public static final boolean kisInverted = true;
+    public static final double kSpeedMultiplier = 0.5;
     public static final int kTalonLeftID = 0;
     public static final int kTalonRightID = 0;
     public static final int kVictorLeftID = 0;
