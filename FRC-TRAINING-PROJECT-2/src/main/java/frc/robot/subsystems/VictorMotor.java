@@ -4,5 +4,11 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPXConfiguration;
+
 /** Add your docs here. */
-public class VictorMotor {}
+public class VictorMotor {
+    VictorSPX m_victorLeft = new VictorSPX(0);
+    VictorSPXConfiguration m_configLeft = new VictorSPXConfiguration();
+}
