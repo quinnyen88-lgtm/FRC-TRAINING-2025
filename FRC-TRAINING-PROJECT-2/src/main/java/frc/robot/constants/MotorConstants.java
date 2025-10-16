@@ -7,6 +7,9 @@ package frc.robot.constants;
 /** Add your docs here. */
 public class MotorConstants {
     public static final boolean kisInverted = true;
-    public static final int kTalonID = 0;
-    public static final int kVictorID = 0;
+    public static final int kTalonLeftID = 0;
+    public static final int kTalonRightID = 0;
+    public static final int kVictorLeftID = 0;
+    public static final int kVictorRightID = 0;
+    
 }

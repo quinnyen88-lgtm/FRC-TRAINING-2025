@@ -5,7 +5,7 @@
 package frc.robot.subsystems;
 
 
-import java.security.Key;
+
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -17,19 +17,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.MotorConstants;
 
-public class Motor extends SubsystemBase {
+public class Drivetrain extends SubsystemBase {
 
-  TalonSRX m_talonLeft = new TalonSRX(MotorConstants.kTalonID);
-  TalonSRX m_talonRight = new TalonSRX(MotorConstants.kTalonID);
+  TalonSRX m_talonLeft = new TalonSRX(MotorConstants.kTalonLeftID);
+  TalonSRX m_talonRight = new TalonSRX(MotorConstants.kTalonRightID);
 
   //VictorSPX Motor initialization
-  VictorSPX m_victorLeft = new VictorSPX(MotorConstants.kVictorID);
-  VictorSPX m_victorRight = new VictorSPX(MotorConstants.kVictorID);
+  VictorSPX m_victorLeft = new VictorSPX(MotorConstants.kVictorLeftID);
+  VictorSPX m_victorRight = new VictorSPX(MotorConstants.kVictorRightID);
 
 
 
   /** Creates a new Motor. */
-  public Motor() {
+  public Drivetrain() {
     //No idea why yet
     m_talonRight.setNeutralMode(NeutralMode.Brake);
     m_talonLeft.setNeutralMode(NeutralMode.Brake);
