@@ -49,8 +49,8 @@ public class ArcadeMotor extends Command {
     m_speed = m_joystick.getRawAxis(IOConstants.kJoystickAxisY);
     m_turn = m_joystick.getRawAxis(IOConstants.kJoystickAxisX);
     //for it to turn one of sides has to have a negative
-    m_left = m_speed - m_turn * DrivetrainConstants.kSpeedMultiplier;
-    m_right = m_speed + m_turn * DrivetrainConstants.kSpeedMultiplier;
+    m_left = m_speed + m_turn * DrivetrainConstants.kSpeedMultiplier;
+    m_right = m_speed - m_turn * DrivetrainConstants.kSpeedMultiplier;
     m_motor.setLeftSpeed(m_left);
     m_motor.setRightSpeed(m_right);
 
