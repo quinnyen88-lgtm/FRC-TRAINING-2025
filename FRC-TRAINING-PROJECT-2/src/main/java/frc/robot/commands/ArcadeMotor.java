@@ -32,8 +32,8 @@ public class ArcadeMotor extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double joystickAxis = m_joystick.getRawAxis(IOConstants.kMotorControlAxis);
-    m_speed = joystickAxis * MotorConstants.kSpeedMultiplier;
+    m_speed = m_joystick.getRawAxis(IOConstants.kMotorControlAxis);
+    m_speed *= MotorConstants.kSpeedMultiplier;
     m_motor.setSpeed(m_speed);
   }
 
