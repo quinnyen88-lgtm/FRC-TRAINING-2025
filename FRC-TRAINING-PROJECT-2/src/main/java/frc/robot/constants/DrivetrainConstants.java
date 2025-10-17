@@ -8,9 +8,9 @@ package frc.robot.constants;
 public class DrivetrainConstants {
     public static final boolean kisInverted = true;
     public static final double kSpeedMultiplier = 0.5;
-    public static final int kTalonLeftID = 0;
-    public static final int kTalonRightID = 0;
-    public static final int kVictorLeftID = 0;
-    public static final int kVictorRightID = 0;
+    public static final int kTalonLeftID = 6;
+    public static final int kTalonRightID = 3;
+    public static final int kVictorLeftID = 8;
+    public static final int kVictorRightID = 7;
     
 }
