@@ -6,8 +6,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
 import frc.robot.commands.ArcadeMotor;
+import frc.robot.commands.MoveForTime;
+import frc.robot.constants.DrivetrainConstants;
 import frc.robot.constants.IOConstants;
 import frc.robot.subsystems.Drivetrain;
 
@@ -16,6 +17,7 @@ public class RobotContainer {
   private Drivetrain m_motor = new Drivetrain();
   private Joystick m_joystick = new Joystick(IOConstants.kJoystickPort);
   private ArcadeMotor m_arcadeMotor = new ArcadeMotor(m_motor, m_joystick);
+  private MoveForTime m_moveForTime = new MoveForTime(m_motor, DrivetrainConstants.kSpeed, DrivetrainConstants.kTimeInSeconds);
 
 
 
@@ -27,6 +29,6 @@ public class RobotContainer {
   private void configureBindings() {}
 
   public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
+    return m_moveForTime;
   }
 }
