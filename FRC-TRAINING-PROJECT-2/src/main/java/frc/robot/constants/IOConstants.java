@@ -10,4 +10,5 @@ public class IOConstants {
     public static final int kJoystickPort = 1;
     public static final int kJoystickAxisX = 4;
     public static final int kJoystickAxisY = 1;
+    public static final double kTimer = 5;
 }
