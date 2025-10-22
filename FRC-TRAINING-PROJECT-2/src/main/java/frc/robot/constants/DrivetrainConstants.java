@@ -14,6 +14,6 @@ public class DrivetrainConstants {
     public static final int kVictorLeftID = 8;
     public static final int kVictorRightID = 7;
 
-    public static final double kSpeed = 0.3;
-    public static final double kTimeInSeconds = 25;
+    public static final double kSpeed = 0.5;
+    public static final double kTimeInSeconds = 10;
 }
