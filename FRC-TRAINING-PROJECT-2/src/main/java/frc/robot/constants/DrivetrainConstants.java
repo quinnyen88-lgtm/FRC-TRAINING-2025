@@ -16,4 +16,7 @@ public class DrivetrainConstants {
 
     public static final double kSpeed = 0.5;
     public static final double kTimeInSeconds = 10;
+
+    public static final double kTicksPerRevolution = 8;
+    public static final double kDiameterInInches = 5;
 }

@@ -69,5 +69,15 @@ public class Drivetrain extends SubsystemBase {
 
   public double getLeftSpeed() {
     return m_talonLeft.getMotorOutputPercent();
+
+    
+  }
+
+  public double getCurrentTickLeftPosition() {
+    return m_talonLeft.getSelectedSensorPosition();
+  }
+
+  public double getCurrentTickRightPosition() {
+    return m_talonRight.getSelectedSensorPosition();
   }
 }
