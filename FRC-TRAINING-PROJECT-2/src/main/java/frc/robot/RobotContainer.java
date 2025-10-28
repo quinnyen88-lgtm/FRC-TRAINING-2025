@@ -35,6 +35,6 @@ public class RobotContainer {
   private void configureBindings() {}
 
   public Command getAutonomousCommand() {
-    return m_moveForDistance;
+    return m_moveForTime;
   }
 }
