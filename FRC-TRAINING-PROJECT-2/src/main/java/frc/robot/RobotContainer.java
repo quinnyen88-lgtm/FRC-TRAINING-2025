@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ArcadeMotor;
 import frc.robot.commands.MoveForDistance;
 import frc.robot.commands.MoveForTime;
+import frc.robot.commands.MoveWithPID;
 import frc.robot.constants.DrivetrainConstants;
 import frc.robot.constants.IOConstants;
 import frc.robot.subsystems.Drivetrain;
@@ -22,6 +23,7 @@ public class RobotContainer {
   private ArcadeMotor m_arcadeMotor = new ArcadeMotor(m_motor, m_joystick);
   private MoveForTime m_moveForTime = new MoveForTime(m_motor, DrivetrainConstants.kSpeed, DrivetrainConstants.kTimeInSeconds);
   private MoveForDistance m_moveForDistance = new MoveForDistance(m_motor, 10, 0.5);
+  private MoveWithPID m_moveWithPID = new MoveWithPID(m_motor, 0);
 
 
 
@@ -30,11 +32,13 @@ public class RobotContainer {
     SendableRegistry.add(m_moveForDistance.getSendable(), "Move For Distance");
     Shuffleboard.getTab("SmartDashBoard").add(m_moveForDistance.getSendable()).withWidget("Move For Distance");
     configureBindings();
+    SendableRegistry.add(m_moveWithPID.getSendable(), "Move With PID");
+    Shuffleboard.getTab("SmartDashBoard").add(m_moveWithPID.getSendable()).withWidget("Move with PID");
   }
 
   private void configureBindings() {}
 
   public Command getAutonomousCommand() {
-    return m_moveForDistance;
+    return m_moveWithPID;
   }
 }

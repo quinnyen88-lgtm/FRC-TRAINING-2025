@@ -69,7 +69,6 @@ public class MoveForDistance extends Command {
   
     @Override
     public void initSendable(SendableBuilder builder) {
-        // TODO Auto-generated method stub
         builder.setSmartDashboardType("Move For Distance");
         builder.addDoubleProperty("Speed", () -> m_speed, null);
         builder.addDoubleProperty("Ticks left to rotate", () -> m_ticksLeftToRotate, null);
